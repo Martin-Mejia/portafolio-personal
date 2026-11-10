@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Martín Mejía Escobar · Portafolio</title>
+<meta name="description" content="Portafolio de Martín Mejía Escobar: desarrollo con Java, Spring Boot, React, Python, SQL y agentes de IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tinta:#1d1a3b;
+  --papel:#f3f0fa;
+  --azul:#3b4cf0;
+  --coral:#ff6a55;
+  --suave:#6b6788;
+  --linea:#d9d4ea;
+  --titulo:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --texto:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;color-scheme:light}
+body{background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.6 var(--texto);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+
+header.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--papel) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
+.nav strong{font:800 1.05rem var(--titulo)}
+.nav ul{display:flex;gap:1.4rem;list-style:none;padding:0}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--suave)}
+.nav a:hover{color:var(--azul)}
+
+.hero{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(3rem,7vw,5rem)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.hero h1{font:800 clamp(3rem,9vw,6.6rem)/.92 var(--titulo);letter-spacing:-.035em}
+.hero h1 span{display:block;color:var(--azul)}
+.hero p{margin-top:1.6rem;max-width:34rem;font-size:1.2rem;color:var(--suave)}
+.hero .botones{margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--tinta)}
+.btn.principal{background:var(--tinta);color:var(--papel)}
+.btn.principal:hover{background:var(--azul);border-color:var(--azul)}
+.btn.secundario:hover{background:var(--tinta);color:var(--papel)}
+.foto{position:relative;justify-self:center;width:min(100%,340px)}
+.foto img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:999px 999px 28px 28px;background:var(--linea)}
+.foto::after{content:"";position:absolute;inset:auto -14px -14px auto;width:62%;height:62%;border-radius:0 0 28px 0;border-right:5px solid var(--coral);border-bottom:5px solid var(--coral);pointer-events:none}
+
+section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--linea)}
+h2{font:800 clamp(1.8rem,4vw,2.6rem)/1.05 var(--titulo);letter-spacing:-.02em;margin-bottom:2rem}
+
+.grupos{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2rem 2.5rem}
+.grupos h3{font:600 .95rem var(--texto);color:var(--suave);margin-bottom:.8rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0}
+.chips li{padding:.45rem .95rem;border-radius:999px;background:#fff;border:1.5px solid var(--tinta);font-weight:600;font-size:.98rem}
+.chips li:hover{background:var(--tinta);color:var(--papel)}
+
+.estudios{display:grid;gap:1.2rem;max-width:44rem}
+.estudio{display:grid;grid-template-columns:5.5rem 1fr;gap:1.2rem;padding:1.4rem 0;border-bottom:1px solid var(--linea)}
+.estudio:last-child{border-bottom:0}
+.anio{font:800 1.6rem/1 var(--titulo);color:var(--azul)}
+.estudio h3{font:800 1.3rem/1.2 var(--titulo)}
+.estudio p{color:var(--suave);margin-top:.3rem}
+.estudio.vacio .anio{color:var(--coral)}
+
+.contacto p{max-width:34rem;color:var(--suave);margin-bottom:1.4rem}
+footer{padding:2rem 0 3rem;color:var(--suave);font-size:.9rem;border-top:1px solid var(--linea)}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .foto{order:-1;width:min(70%,260px);justify-self:start}
+  .nav ul{gap:.9rem}
+  .estudio{grid-template-columns:1fr;gap:.3rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <strong>Martín Mejía</strong>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#tecnologias">Tecnologías</a></li>
+        <li><a href="#estudios">Estudios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Martín <span>Mejía Escobar</span></h1>
+        <p>Desarrollador en formación. Construyo aplicaciones web con Java, Spring Boot y React, y exploro agentes de inteligencia artificial.</p>
+        <div class="botones">
+          <a class="btn principal" href="#contacto">Contáctame</a>
+          <a class="btn secundario" href="#tecnologias">Ver tecnologías</a>
+        </div>
+      </div>
+      <div class="foto">
+        <img src="foto.jpg" alt="Retrato de Martín Mejía Escobar">
+      </div>
+    </div>
+  </div>
+
+  <section id="tecnologias">
+    <div class="wrap">
+      <h2>Tecnologías</h2>
+      <div class="grupos">
+        <div>
+          <h3>Lenguajes</h3>
+          <ul class="chips"><li>Java</li><li>Python</li><li>JavaScript</li></ul>
+        </div>
+        <div>
+          <h3>Frontend</h3>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>React</li></ul>
+        </div>
+        <div>
+          <h3>Backend</h3>
+          <ul class="chips"><li>Spring Boot</li></ul>
+        </div>
+        <div>
+          <h3>Bases de datos</h3>
+          <ul class="chips"><li>SQL</li><li>MariaDB</li></ul>
+        </div>
+        <div>
+          <h3>Inteligencia artificial</h3>
+          <ul class="chips"><li>Agentes</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estudios">
+    <div class="wrap">
+      <h2>Estudios</h2>
+      <div class="estudios">
+        <article class="estudio">
+          <div class="anio">2026</div>
+          <div>
+            <h3>Bachiller académico</h3>
+            <p>Cosmoschool · Estudios formales</p>
+          </div>
+        </article>
+        <article class="estudio vacio">
+          <div class="anio">·</div>
+          <div>
+            <h3>Estudios complementarios</h3>
+            <p>Próximamente: cursos y certificaciones.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="wrap">
+      <h2>Hablemos</h2>
+      <p>¿Tienes un proyecto o una oportunidad? Escríbeme.</p>
+      <!-- Cambia estos enlaces por los tuyos -->
+      <a class="btn principal" href="mailto:TU_CORREO@ejemplo.com">TU_CORREO@ejemplo.com</a>
+      <a class="btn secundario" href="https://github.com/TU_USUARIO" rel="noopener">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Martín Mejía Escobar</div>
+</footer>
+
+</body>
+</html>
